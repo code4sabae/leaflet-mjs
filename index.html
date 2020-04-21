@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="apple-touch-icon" href=""/>
+<meta property="og:image" content=""/>
+<meta name="format-detection" content="telephone=no"/>
+<title>map sample - leaflet.mjs</title>
+<link rel='stylesheet' href='leaflet/leaflet.css'/>
+<script type='module'>
+
+import L from './leaflet-module.mjs'
+
+window.onload = async function() {
+  const data = [
+    { lat: 35.943560, lng: 136.188917, name: '鯖江駅' },
+    { lat: 35.944539, lng: 136.186222, name: 'Hana道場' },
+    { lat: 35.942795, lng: 136.198881, name: 'めがね会館' },
+    { lat: 35.949658, lng: 136.258142, name: 'JAPAN CRAFT HOUSE' },
+  ]
+
+  const map = L.map('mapid')
+  // set 国土地理院地図 https://maps.gsi.go.jp/development/ichiran.html
+  L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png", {
+		attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>"',
+		maxZoom: 18,
+  }).addTo(map)
+
+  let iconlayer = L.layerGroup()
+  iconlayer.addTo(map)
+  const lls = []
+  for (const item of data) {
+    const ll = [ item.lat, item.lng ]
+    const marker = L.marker(ll, { title: item.name })
+    marker.bindPopup(item.name)
+    iconlayer.addLayer(marker)
+    lls.push(ll)
+  }
+  if (lls.length)
+    map.fitBounds(lls)
+}
+
+</script>
+<style>
+body {
+	font-family: sans-serif;
+	margin: 0;
+  word-wrap: break-word;
+  --main-color: #66BE6C;
+  text-align: center;
+}
+h1 {
+	margin: 0;
+	padding: .0em;
+	background-color: var(--main-color);
+	color: white;
+	font-size: 6vw;
+	text-align: center;
+}
+h2 {
+  font-size: 3vw;
+}
+.subtitle {
+	text-align: center;
+	margin: 0;
+	padding: .3em;
+	background-color: var(--main-color);
+	color: white;
+	font-size: 3vw;
+}
+/* map */
+#mapid {
+  width: 100%;
+  height: 60vh;
+}
+.leaflet-tile-container { /* 地図の色味変更 CSS3 filter */
+    x-filter: sepia(100%) brightness(95%); /* セピア */
+    x-filter: grayscale(100%) brightness(110%); /* 明るめグレースケール */
+    filter: hue-rotate(-10deg) saturate(70%) brightness(104%); /* いい感じの色 */
+}
+/* footer */
+#debug {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 0.5em;
+  font-size: 70%;
+}
+#src {
+	margin: 1em 0 .5em 0;
+}
+a {
+	color: gray !important;
+}
+</style>
+</head>
+<body>
+
+<h1 id=title>map sample - leaflet.mjs</h1><div class=subtitle>sample map web app using leaflet.mjs</div>
+<div id="mapid"></div>
+
+<div id="link">
+  <div id="src">
+    <div>LIB：CC BY <a href='https://leafletjs.com/'>Leaflet</a> (<a href=https://github.com/Leaflet/Leaflet>src on GitHub</a>) → <a href=https://fukuno.jig.jp/2826>leaflet-module.mjs</a> (<a href=https://github.com/code4sabae/leaflet-mjs>src on GitHub</a>)</div>
+    <div>APP：CC BY <a href='https://fukuno.jig.jp/2826'>fukuno.jig.jp</a> (<a href=https://github.com/code4sabae/leaflet-mjs>src on GitHub</a>)</div>
+  </div>
+  <img id=qrcode><script>addEventListener("load", () => qrcode.src = "https://chart.apis.google.com/chart?chs=140x140&cht=qr&chl=" + encodeURIComponent(document.location))</script><br>
+</div>
+
+</body>
+</html>
