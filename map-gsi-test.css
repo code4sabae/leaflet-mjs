@@ -10,7 +10,7 @@ h1 {
 	padding: .0em;
 	background-color: var(--main-color);
 	color: white;
-	font-size: 6vw;
+	font-size: 4vw;
 	text-align: center;
 }
 h2 {
@@ -23,6 +23,13 @@ h2 {
 	background-color: var(--main-color);
 	color: white;
 	font-size: 3vw;
+}
+.code {
+	border: 1px solid gray;
+	padding: 1em;
+	margin: 1em;
+	text-align: left;
+	white-space: pre-wrap;
 }
 /* footer */
 #src {

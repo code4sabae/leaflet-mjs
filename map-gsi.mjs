@@ -8,7 +8,9 @@ class MapGSI extends HTMLElement {
     link.rel = "stylesheet";
     link.href = "https://code4sabae.github.io/leaflet-mjs/leaflet.css";
     this.appendChild(link);
-
+    link.onload = () => this.init();
+  }
+  init () {
     const div = document.createElement("div");
     this.appendChild(div);
     div.style.width = this.getAttribute("width") || "100%";
