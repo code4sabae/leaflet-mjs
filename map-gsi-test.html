@@ -1,29 +1,44 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="apple-touch-icon" href="map-ogp.png"/>
-<meta property="og:image" content="map-ogp.png"/>
+<link rel="apple-touch-icon" href="map-gsi-test.png"/>
+<meta property="og:image" content="map-gsi-test.png"/>
 <meta name="format-detection" content="telephone=no"/>
-<title>map-gsi sample - leaflet.mjs</title>
-<link rel="stylesheet" href="./map-gsi.css"></link>
+<title>簡単埋め込み地図 map-gsi タグの使い方</title>
+<link rel="stylesheet" href="./map-gsi-test.css"></link>
 </head>
 <body>
 
-<h1 id=title>map-gsi sample</h1><div class=subtitle>map-gsi WebComponent using leaflet.mjs</div>
+<h1 id=title>簡単埋め込み地図 map-gsi タグの使い方</h1><div class=subtitle>map-gsi tag - WebComponent using leaflet.mjs</div>
 
-<script type='module' src="./map-gsi.mjs"></script>
+<script type="module" src="https://code4sabae.github.io/leaflet-mjs/map-gsi.mjs"></script>
 <map-gsi>
   <map-gsi-icon ll="35.944535,136.186228" name="Hana道場"></map-gsi-icon>
   <map-gsi-icon ll="35.943560,136.188917" name="鯖江駅"></map-gsi-icon>
-  <map-gsi-icon ll="35.942795,136.198881" name="めがね会館"></map-gsi-icon>
+  <map-gsi-icon ll="35.942795,136.198881" name="めがね会館" src="icon-meganekaikan.png" size=48></map-gsi-icon>
   <map-gsi-icon ll="35.949658,136.258142" name="JAPAN CRAFT HOUSE"></map-gsi-icon>
 </map-gsi>
+
+<br>
+使い方 - 下記のHTMLを埋め込むだけ！（アイコンが全部見える大きさで表示されます）<br>
+<div class=code>
+&lt;script type="module" src="https://code4sabae.github.io/leaflet-mjs/map-gsi.mjs"&gt;&lt;/script&gt;
+&lt;map-gsi&gt;
+  &lt;map-gsi-icon ll="35.944535,136.186228" name="Hana道場"&gt;&lt;/map-gsi-icon&gt;
+  &lt;map-gsi-icon ll="35.943560,136.188917" name="鯖江駅"&gt;&lt;/map-gsi-icon&gt;
+  &lt;map-gsi-icon ll="35.942795,136.198881" name="めがね会館" src="icon-meganekaikan.png" size=48&gt;&lt;/map-gsi-icon&gt;
+  &lt;map-gsi-icon ll="35.949658,136.258142" name="JAPAN CRAFT HOUSE"&gt;&lt;/map-gsi-icon&gt;
+&lt;/map-gsi&gt;
+
+</div>
+
+<div>緯度経度を調べたい時は、「<a href=https://fukuno.jig.jp/app/printmap/latlngmap.html>緯度経度地図</a>」をどうぞ！</div>
 
 <div id="link">
   <div id="src">
     <div>LIB：CC BY <a href='https://leafletjs.com/'>Leaflet</a> (<a href=https://github.com/Leaflet/Leaflet>src on GitHub</a>) → <a href=https://fukuno.jig.jp/2826>leaflet.mjs</a> (<a href=https://github.com/code4sabae/leaflet-mjs>src on GitHub</a>)</div>
     <div>APP：CC BY <a href='https://fukuno.jig.jp/2826'>fukuno.jig.jp</a> (<a href=https://github.com/code4sabae/leaflet-mjs>src on GitHub</a>)</div>
   </div>
-  <script type='module' src="./qr-code.mjs"></script>
+  <script type='module' src="https://code4sabae.github.io/leaflet-mjs/qr-code.mjs"></script>
   <qr-code></qr-code>
 </div>
 
