@@ -31,7 +31,16 @@ class MapGSI extends HTMLElement {
       console.log(typeof item.getAttribute("name"));
       const ll = item.getAttribute("ll").split(",");
       const title = item.getAttribute("name");
-      const marker = L.marker(ll, { title });
+      const opt = { title };
+      const iconsrc = item.getAttribute("src");
+      if (iconsrc) {
+        const w = item.getAttribute("size") || 48;
+        opt.icon = L.icon({
+          iconUrl: iconsrc, iconSize: [ w, w ], iconAnchor: [ w / 2, w / 2 ]
+        });
+        console.log(opt.icon);
+      }
+      const marker = L.marker(ll, opt);
       marker.bindPopup(title);
       iconlayer.addLayer(marker);
       lls.push(ll);
