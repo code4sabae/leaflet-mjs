@@ -29,8 +29,8 @@ class MapGSI extends HTMLElement {
     const lls = [];
     for (const item of this.children) {
       if (item.tagName !== "MAP-GSI-ICON") continue;
-      console.log(item, item.tagName);
-      console.log(typeof item.getAttribute("name"));
+      // console.log(item, item.tagName);
+      // console.log(typeof item.getAttribute("name"));
       const ll = item.getAttribute("ll").split(",");
       const title = item.getAttribute("name");
       const opt = { title };
@@ -40,7 +40,7 @@ class MapGSI extends HTMLElement {
         opt.icon = L.icon({
           iconUrl: iconsrc, iconSize: [ w, w ], iconAnchor: [ w / 2, w / 2 ]
         });
-        console.log(opt.icon);
+        // console.log(opt.icon);
       }
       const marker = L.marker(ll, opt);
       marker.bindPopup(title);
