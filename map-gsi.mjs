@@ -15,6 +15,7 @@ class MapGSI extends HTMLElement {
     this.appendChild(div);
     div.style.width = this.getAttribute("width") || "100%";
     div.style.height = this.getAttribute("height") || "60vh";
+    const zoom = this.getAttribute("zoom") || 10;
 
     const map = L.map(div);
     // set 国土地理院地図 https://maps.gsi.go.jp/development/ichiran.html
@@ -50,6 +51,7 @@ class MapGSI extends HTMLElement {
     if (lls.length) {
       map.fitBounds(lls);
     }
+    map.setZoom(zoom);
   }
 }
 
