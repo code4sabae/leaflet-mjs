@@ -645,3 +645,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	x-filter: grayscale(100%) brightness(110%); /* 明るめグレースケール */
 	filter: hue-rotate(-10deg) saturate(70%) brightness(104%); /* いい感じの色 */
 }
+.leaflet-popup-content {
+	height: 300px;
+	overflow: scroll;
+}
